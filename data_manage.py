@@ -238,3 +238,8 @@ def get_reviews(book_id):
     return ret
 
 
+def get_transactions(username):
+    conn = sqlite3.connect("library_database.db")
+    data = conn.execute("SELECT book_id, transaction_type, date FROM transaction_info WHERE username = ?", (username,)).fetchall()
+    return data
+
