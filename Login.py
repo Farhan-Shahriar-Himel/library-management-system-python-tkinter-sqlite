@@ -59,7 +59,7 @@ class LoginWindow:
         if Authenticate(username, password):
             from dashboard import DashboardWindow
             self.root.iconify()
-            DashboardWindow(self.root, username=username, email=f"{username}@gmail.com")
+            DashboardWindow(self.root, username=username)
             # ProfileWindow(master=self.root, username=username, email=f"{username}@gmail.com", phone="10234", address="Mirpur, Dhaka", university="BUBT", fav_genres=['history', 'programming'], password=password)
             # messagebox.showinfo("Login Success", "Welcome!")
             # self.root.destroy()  # Close the login window on successful login

@@ -1,6 +1,7 @@
 import tkinter as tk
-from tkinter import messagebox
-from data_manage import get_data
+from tkinter import messagebox, simpledialog
+from data_manage import get_data, update_book_count, register_borrow_return
+
 class DashboardWindow:
     def __init__(self, master, username):
         self.user = get_data(username)
@@ -31,6 +32,9 @@ class DashboardWindow:
         edit_book_button = tk.Button(self.root, text="Edit Book", command=self.edit_book, width=20, height=2)
         edit_book_button.pack(pady=10)
 
+        return_book_button = tk.Button(self.root, text="Return Book", command=self.return_book, width=20, height=2)
+        return_book_button.pack(pady=10)
+
         articles_button = tk.Button(self.root, text="Articles", command=self.show_articles, width=20, height=2)
         articles_button.pack(pady=10)
 
@@ -48,20 +52,35 @@ class DashboardWindow:
         from all_books import BooksWindow
         from demo_data import demo_books
         self.root.iconify
-        BooksWindow(self.root, demo_books)
+        BooksWindow(self.root, self.user['username'])
         # messagebox.showinfo("Books", "Books section would go here.")
 
     def donate_book(self):
-        from donate_book import open_donate_book_window
+        from donate_book import DonateBookWindow
         self.root.iconify()
-        open_donate_book_window(self.root)
+        DonateBookWindow(self.root, self.user['username'])
         # messagebox.showinfo("Donate Book", "Donate book functionality would go here.")
 
     def edit_book(self):
         from edit_book import open_edit_book_window
         self.root.iconify()
         open_edit_book_window(self.root)
-        # messagebox.showinfo("Edit Book", "Edit book functionality would go here.")
+        # messagebox.showinfo("Edit Book", "Edit book functionality would go here.")\
+
+    def return_book(self):
+        # Prompt the user to enter the book ID
+        try:
+            book_id = int(simpledialog.askstring("Return Book", "Enter the Book ID to return:"))
+        except (TypeError, ValueError):
+            messagebox.showwarning("Invalid Input", "Please enter a valid numeric Book ID.")
+            return
+
+        
+        register_borrow_return(book_id, self.user['username'], "Returned")
+        update_book_count(book_id, True)
+        messagebox.showinfo("Book Returned", f"Book with ID {book_id} has been returned by {username}.")
+
+
 
     def show_articles(self):
         from articles import open_articles_window
