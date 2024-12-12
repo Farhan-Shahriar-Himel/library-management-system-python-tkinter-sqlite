@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.19/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-white text-gray-900">
+
+    <header class="mt-4 px-6 py-4 bg-white shadow-md">
+        <div class="flex justify-between items-center">
+            <h1 class="text-3xl font-semibold">Library Menu</h1>
+            <div class="flex items-center space-x-4">
+                <input class="border rounded-xl px-4 py-2 bg-gray-100 text-gray-900" type="text" placeholder="Search books...">
+                <button class="bg-accent px-6 py-2 rounded-xl text-white">Search</button>
+                <button class="btn btn-accent rounded-full p-2">
+                    <img class="w-[20px]" src="image/user.png" alt="User Icon">
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex gap-8 mt-8 px-6">
+        <div class="w-[10%] space-y-6">
+            <button class="btn btn-accent w-full">Donate Book</button>
+            <button class="btn btn-accent w-full">Edit Book</button>
+            <button class="btn btn-accent w-full">Return Book</button>
+            <button class="btn btn-accent w-full">Article</button>
+            <button class="btn btn-error w-full">Logout</button>
+        </div>
+        
+        <div class="">
+            <h2 class="text-2xl font-bold mb-6">Library Book Collection</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Repeat this block for each book -->
+                <div class="bg-white p-4 rounded-lg shadow-lg border border-gray-200">
+                    <div class="flex justify-center mb-4">
+                        <img class="w-[120px] h-[180px] object-cover" src="image/book_icon1.png" alt="Book Image">
+                    </div>
+                    <div class="text-center">
+                        <h3 class="text-xl font-semibold">The Last of The Dragons</h3>
+                        <p class="text-sm text-gray-600">By Author</p>
+                    </div>
+                    <div class="mt-4 gap-2 flex justify-center">
+                        <button class="btn btn-sm w-[60px]">Details</button>
+                        <button class="btn btn-sm w-[90px]">Open PDF</button>
+                        <button class="btn btn-sm w-[60px]">Borrow</button>
+                        <button class="btn btn-sm w-[60px]">Review</button>
+                    </div>
+                </div>
+                <!-- End of book block -->
+
+                <!-- Repeat for more books -->
+                <div class="bg-white p-4 rounded-lg shadow-lg border border-gray-200">
+                    <div class="flex justify-center mb-4">
+                        <img class="w-[120px] h-[180px] object-cover" src="image/book_icon2.png" alt="Book Image">
+                    </div>
+                    <div class="text-center">
+                        <h3 class="text-xl font-semibold">The Journey Beyond</h3>
+                        <p class="text-sm text-gray-600">By Author</p>
+                    </div>
+                    <div class="mt-4 gap-2 flex justify-center">
+                        <button class="btn btn-sm w-[60px]">Details</button>
+                        <button class="btn btn-sm w-[90px]">Open PDF</button>
+                        <button class="btn btn-sm w-[60px]">Borrow</button>
+                        <button class="btn btn-sm w-[60px]">Review</button>
+                    </div>
+                </div>
+
+                <div class="bg-white p-4 rounded-lg shadow-lg border border-gray-200">
+                    <div class="flex justify-center mb-4">
+                        <img class="w-[120px] h-[180px] object-cover" src="image/book_icon2.png" alt="Book Image">
+                    </div>
+                    <div class="text-center">
+                        <h3 class="text-xl font-semibold">The Dark Forest</h3>
+                        <p class="text-sm text-gray-600">By Author</p>
+                    </div>
+                    <div class="mt-4 gap-2 flex justify-center">
+                        <button class="btn btn-sm w-[60px]">Details</button>
+                        <button class="btn btn-sm w-[90px]">Open PDF</button>
+                        <button class="btn btn-sm w-[60px]">Borrow</button>
+                        <button class="btn btn-sm w-[60px]">Review</button>
+                    </div>
+                </div>
+                <!-- End of book block -->
+
+                <!-- Add more books as needed -->
+            </div>
+        </div>
+    </main>
+
+</body>
+
+</html>
